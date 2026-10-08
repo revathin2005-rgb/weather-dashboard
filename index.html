@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="View current weather conditions for any city with the Weather Dashboard Application."
+    />
+    <title>Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Weather Dashboard home">
+          <span class="brand-mark" aria-hidden="true">☀️</span>
+          <span>Weather Dashboard</span>
+        </a>
+        <p class="tagline">Live conditions at a glance</p>
+      </header>
+
+      <main class="dashboard">
+        <section class="search-panel" aria-labelledby="search-heading">
+          <div class="search-intro">
+            <p class="eyebrow">Forecast</p>
+            <h1 id="search-heading">Check the weather anywhere</h1>
+          </div>
+
+          <form class="search-form" id="search-form" novalidate>
+            <label class="sr-only" for="city-input">City name</label>
+            <div class="input-group">
+              <span class="input-icon" aria-hidden="true">⌕</span>
+              <input
+                id="city-input"
+                name="city"
+                type="search"
+                autocomplete="off"
+                placeholder="Enter a city name"
+                aria-describedby="form-message"
+              />
+              <button type="submit" class="search-button">
+                <span class="button-label">Search</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="weather-panel" aria-live="polite">
+          <div id="loading-state" class="state-panel hidden" aria-live="polite">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Fetching the latest weather data...</p>
+          </div>
+
+          <div id="error-state" class="state-panel error-panel hidden" aria-live="assertive"></div>
+
+          <article id="weather-card" class="weather-card hidden">
+            <div class="weather-header">
+              <div>
+                <p class="location-label">Current weather</p>
+                <h2 id="city-name">City</h2>
+                <p id="country-name" class="country-name">Country</p>
+              </div>
+              <div id="weather-icon" class="weather-icon" aria-label="Weather condition">☀️</div>
+            </div>
+
+            <div class="temperature-row">
+              <p class="temperature" id="temperature">--°</p>
+              <div class="condition-block">
+                <p id="weather-condition" class="condition">Weather</p>
+                <p id="weather-description" class="description">Description</p>
+              </div>
+            </div>
+
+            <div class="details-grid" aria-label="Weather details">
+              <div class="detail-card">
+                <span class="detail-icon" aria-hidden="true">💧</span>
+                <div>
+                  <p class="detail-label">Humidity</p>
+                  <p id="humidity" class="detail-value">--%</p>
+                </div>
+              </div>
+              <div class="detail-card">
+                <span class="detail-icon" aria-hidden="true">💨</span>
+                <div>
+                  <p class="detail-label">Wind</p>
+                  <p id="wind-speed" class="detail-value">-- km/h</p>
+                </div>
+              </div>
+              <div class="detail-card">
+                <span class="detail-icon" aria-hidden="true">🌡️</span>
+                <div>
+                  <p class="detail-label">Feels like</p>
+                  <p id="feels-like" class="detail-value">--°</p>
+                </div>
+              </div>
+              <div class="detail-card">
+                <span class="detail-icon" aria-hidden="true">⏱️</span>
+                <div>
+                  <p class="detail-label">Pressure</p>
+                  <p id="pressure" class="detail-value">-- hPa</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
